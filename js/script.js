@@ -32,6 +32,7 @@ class Todo {
         li.insertAdjacentHTML('beforeend', `
         <span class="text-todo">${todo.value}</span>
 				<div class="todo-buttons">
+                    <button class="todo-edit" data-id=${todo.key}></button>
 					<button class="todo-remove" data-id=${todo.key}></button>
 					<button class="todo-complete" data-id=${todo.key}></button>
 				</div>
@@ -97,9 +98,8 @@ class Todo {
 
             } else if (target.classList.contains('todo-complete')) {
                 this.completedItem(target);
-            }
-        });
-        
+            } 
+    });
     }
     init() {
         this.form.addEventListener('submit', this.addTodo.bind(this));
